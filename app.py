@@ -2,12 +2,11 @@ from flask import Flask, request, jsonify, send_from_directory
 import google.generativeai as genai
 import os
 
-# Configure Gemini
 genai.configure(api_key="AIzaSyAUKhsxbFjdMORD6SXVUO5waztYAH08udY")  # Replace with your actual key
 model = genai.GenerativeModel("gemini-2.5-flash")
 chat = model.start_chat()
 
-# Flask app setup
+
 app = Flask(__name__, static_folder="")
 
 @app.route("/")
