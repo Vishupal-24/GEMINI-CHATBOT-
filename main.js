@@ -1,10 +1,16 @@
 const sendButton = document.getElementById("send-button");
 const userInput = document.getElementById("user-input");
 const chatBox = document.getElementById("chat-box");
+function getTime() {
+  return new Date().toLocaleTimeString([]);
+}
+
 sendButton.onclick = async () => {
+  
   const message = userInput.value.trim();
   if (!message) return;
-  chatBox.innerHTML += `<div class="user">${message}</div>`;
+  chatBox.innerHTML += `<div class="user">${message} <span class="timestamp">${getTime()}</span> </div>`;
+  
   userInput.value = "";
   chatBox.scrollTop = chatBox.scrollHeight;
   const response = await fetch("/chat", {
@@ -13,7 +19,8 @@ sendButton.onclick = async () => {
     body: JSON.stringify({ message: message })
   });
   const data = await response.json();
-  chatBox.innerHTML += `<div class="bot">${data.reply}</div>`;
+  chatBox.innerHTML += `<div class="bot">${data.reply}<span class="timestamp">${getTime()}</span></div>`;
+  
   chatBox.scrollTop = chatBox.scrollHeight;
   
   
@@ -28,7 +35,8 @@ sendButton.onclick = async () => {
     body: JSON.stringify({ message: suggestions })
   });
   const new_suggestions = await suggest1.json();
-  chatBox.innerHTML+=`<div id="suggest">${new_suggestions.reply}</div>`;
+  chatBox.innerHTML+=`<div id="suggest">${new_suggestions.reply}<span class="timestamp">${getTime()}</span></div>`;
+  
   
   chatBox.innerHTML+=`<button id="regenrate">${"Regenrate"}</button>`;
   const regen =document.getElementById("regenrate");
@@ -43,7 +51,8 @@ sendButton.onclick = async () => {
     body: JSON.stringify({ message: new_message })
   });
     const new_response = await response.json();
-    chatBox.innerHTML += `<div class="bot">${new_response.reply}</div>`;
+    chatBox.innerHTML += `<div class="bot">${new_response.reply}<span class="timestamp">${getTime()}</span></div>`;
+    
     chatBox.scrollTop = chatBox.scrollHeight;
   }
   

@@ -142,3 +142,14 @@ h2 {
     max-width: 80%;
     
 }
+.timestamp{
+    font-weight: 300;
+    font-size: 0.50em;
+    position: relative;
+    text-align: end;
+    
+    
+    display: block;
+    
+    color: black;
+}
