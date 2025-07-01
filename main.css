@@ -23,12 +23,13 @@ body {
     border: none;
     padding: 18px 12px;
     margin-bottom: 18px;
-    background: #f1f8ff;
+    background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     
     display: flex;
     flex-direction: column; 
+    
 }
 
 .user, .bot {
@@ -113,4 +114,31 @@ h2 {
     display: flex; 
     flex-direction: column; 
     margin-bottom: 10px;
+}
+#regenrate{
+    background: linear-gradient(120deg, #e3f2fd 0%, #90caf9 100%);
+    color: #2d2d2d;
+    align-self: flex-start;
+    text-align: left;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+#regenrate:hover {
+    background: linear-gradient(120deg, #50e3c2 0%, #4a90e2 100%);
+    transform: translateY(-2px) scale(1.04);
+}
+
+#suggest{
+    background-color: #f0f4f8;
+    color: #333333;
+    align-self: flex-start;
+    text-align: left;
+    padding: 12px 16px;
+    margin: 10px 0;
+    border: 1px solid #d0d7de;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+    max-width: 80%;
+    
 }

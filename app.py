@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, send_from_directory
 import google.generativeai as genai
 import os
 
-genai.configure(api_key="AIzaSyAUKhsxbFjdMORD6SXVUO5waztYAH08udY")  # Replace with your actual key
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model = genai.GenerativeModel("gemini-2.5-flash")
 chat = model.start_chat()
 

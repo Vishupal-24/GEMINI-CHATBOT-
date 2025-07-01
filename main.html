@@ -14,34 +14,7 @@
     <input type="text" id="user-input" placeholder="Type your message..." />
     <button id="send-button">Send</button>
   </div>
-
-  <script>
-    const sendButton = document.getElementById("send-button");
-    const userInput = document.getElementById("user-input");
-    const chatBox = document.getElementById("chat-box");
-
-    sendButton.onclick = async () => {
-      const message = userInput.value.trim();
-      if (!message) return;
-
-      chatBox.innerHTML += `<div class="user">${message}</div>`;
-      userInput.value = "";
-      chatBox.scrollTop = chatBox.scrollHeight;
-
-      const response = await fetch("/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: message })
-      });
-
-      const data = await response.json();
-      chatBox.innerHTML += `<div class="bot">${data.reply}</div>`;
-      chatBox.scrollTop = chatBox.scrollHeight;
-    };
-
-    userInput.addEventListener("keypress", function(e) {
-      if (e.key === "Enter") sendButton.click();
-    });
-  </script>
+  <script src="main.js"></script>
+  
 </body>
 </html>
